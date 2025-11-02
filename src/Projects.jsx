@@ -220,6 +220,17 @@ export default function Projects() {
             <h1 className="text-4xl font-bold text-center mb-10 tracking-wide">
                 My Projects
             </h1>
+    
+
+
+
+
+             
+
+
+
+
+
 
             {/* Glass Tabs */}
             <div className="flex justify-center gap-6 mb-12 backdrop-blur-md px-6 py-3">
