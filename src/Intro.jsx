@@ -26,7 +26,7 @@ export default function Intro() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-10 text-gray-400">
-          {["home", "about", "projects", "services"].map((item) => (
+          {["Home", "About", "projects", "Contact"].map((item) => (
             <li
               key={item}
               className="hover:text-white cursor-pointer transition-colors duration-300"
@@ -61,7 +61,7 @@ export default function Intro() {
           </button>
 
           {/* Menu Links */}
-          {["Home", "About", "Projects", "Services"].map((item, index) => (
+          {["Home", "About", "Projects", "Contact"].map((item, index) => (
             <span
               key={item}
               onClick={() => setMenuOpen(false)}

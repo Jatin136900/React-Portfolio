@@ -1,0 +1,143 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+/* --- Card Styling --- */
+.futuristic-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 25px;
+  overflow: hidden;
+  border: 1px solid rgba(177, 156, 217, 0.2);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+.futuristic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(138, 90, 255, 0.15) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.futuristic-card:hover::before {
+  transform: translateX(100%);
+}
+
+.futuristic-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 45px rgba(138, 90, 255, 0.4);
+  border-color: rgba(138, 90, 255, 0.8);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.futuristic-card:hover .card-image img {
+  transform: scale(1.1);
+  filter: grayscale(0%) brightness(1.1);
+}
+
+.futuristic-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.futuristic-card p {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  min-height: 60px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .futuristic-card {
+    padding: 20px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .card-image {
+    height: 170px;
+  }
+
+  .futuristic-card h2 {
+    font-size: 1rem;
+  }
+
+  .futuristic-card p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .card-image {
+    height: 160px;
+  }
+
+  .futuristic-card {
+    padding: 18px;
+  }
+
+  .futuristic-card h2 {
+    font-size: 1rem;
+  }
+
+  .futuristic-card p {
+    font-size: 0.8rem;
+  }
+}
