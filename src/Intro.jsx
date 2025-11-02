@@ -3,35 +3,62 @@ import video from "./images/vedio.mp4";
 
 export default function Intro() {
   const [isVisible, setIsVisible] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) setIsVisible(false);
       else setIsVisible(true);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="min-h-screen flex flex-col relative overflow-hidden ">
 
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-10">
-        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">Jatin</h1>
+      <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-20 relative">
+        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
+          Jatin
+        </h1>
+
+        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-10 text-gray-400">
           {["home", "about", "projects", "services"].map((item) => (
-            <li key={item} className="hover:text-white cursor-pointer transition">
+            <li
+              key={item}
+              className="hover:text-white cursor-pointer transition"
+            >
               {item}
             </li>
           ))}
         </ul>
 
-        {/* Mobile Menu Placeholder */}
-        <div className="md:hidden text-gray-400 hover:text-white cursor-pointer">
-          ☰
+        {/* Hamburger Button */}
+        <div
+          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-2xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✕" : "☰"}
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#111325] border-t border-[#222642] py-4 md:hidden">
+            <ul className="flex flex-col items-center space-y-4 text-gray-300">
+              {["home", "about", "projects", "services"].map((item) => (
+                <li
+                  key={item}
+                  className="hover:text-white cursor-pointer transition text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
