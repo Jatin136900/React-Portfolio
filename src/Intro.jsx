@@ -5,6 +5,7 @@ export default function Intro() {
   const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Hide scroll indicator on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) setIsVisible(false);
@@ -15,10 +16,10 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden ">
-
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-20 relative">
+      <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-30 relative">
+        {/* Logo */}
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
           Jatin
         </h1>
@@ -28,7 +29,7 @@ export default function Intro() {
           {["home", "about", "projects", "services"].map((item) => (
             <li
               key={item}
-              className="hover:text-white cursor-pointer transition"
+              className="hover:text-white cursor-pointer transition-colors duration-300"
             >
               {item}
             </li>
@@ -37,33 +38,47 @@ export default function Intro() {
 
         {/* Hamburger Button */}
         <div
-          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl transition-transform duration-300"
+          onClick={() => setMenuOpen(true)}
         >
-          {menuOpen ? "✕" : "☰"}
+          ☰
         </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="absolute top-full left-0 w-full bg-[#111325] border-t border-[#222642] py-4 md:hidden">
-            <ul className="flex flex-col items-center space-y-4 text-gray-300">
-              {["home", "about", "projects", "services"].map((item) => (
-                <li
-                  key={item}
-                  className="hover:text-white cursor-pointer transition text-lg"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {/* Full-Screen Mobile Menu */}
+        <div
+          className={`fixed inset-0 bg-[#0a0b14]/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-10 text-2xl text-gray-300 font-medium transform transition-all duration-500 ease-in-out ${
+            menuOpen
+              ? "opacity-100 translate-y-0 pointer-events-auto"
+              : "opacity-0 -translate-y-full pointer-events-none"
+          }`}
+        >
+          {/* Close Button */}
+          <button
+            className="absolute top-6 right-8 text-4xl text-gray-400 hover:text-white transition-transform duration-300"
+            onClick={() => setMenuOpen(false)}
+          >
+            ✕
+          </button>
+
+          {/* Menu Links */}
+          {["Home", "About", "Projects", "Services"].map((item, index) => (
+            <span
+              key={item}
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-white cursor-pointer transition-all duration-300 transform hover:scale-110"
+              style={{
+                animation: "fadeSlide 0.5s ease forwards",
+                animationDelay: `${index * 0.1 + 0.2}s`,
+              }}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </nav>
 
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-6 sm:px-10 md:px-24 pt-10 md:pt-0 z-10 text-center md:text-left">
-
         {/* Left Text Section */}
         <div className="md:w-1/2 space-y-6 sm:space-y-8">
           <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
@@ -128,7 +143,7 @@ export default function Intro() {
         </div>
       </div>
 
-      {/* Arrow Animation */}
+      {/* Animations */}
       <style jsx>{`
         @keyframes scrollArrow {
           0%,
@@ -143,6 +158,17 @@ export default function Intro() {
         }
         .animate-scrollArrow {
           animation: scrollArrow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes fadeSlide {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </div>
