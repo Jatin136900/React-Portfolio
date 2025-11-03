@@ -16,17 +16,16 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0a0b14] text-white">
       {/* Navbar */}
       <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-30 relative">
-        {/* Logo */}
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
           Jatin
         </h1>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-10 text-gray-400">
-          {["Home", "About", "projects", "Contact"].map((item) => (
+          {["Home", "About", "Projects", "Contact"].map((item) => (
             <li
               key={item}
               className="hover:text-white cursor-pointer transition-colors duration-300"
@@ -36,31 +35,29 @@ export default function Intro() {
           ))}
         </ul>
 
-        {/* Hamburger Button */}
+        {/* Hamburger for mobile */}
         <div
-          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl transition-transform duration-300"
+          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl"
           onClick={() => setMenuOpen(true)}
         >
           ☰
         </div>
 
-        {/* Full-Screen Mobile Menu */}
+        {/* Full Screen Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-[#0a0b14]/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-10 text-2xl text-gray-300 font-medium transform transition-all duration-500 ease-in-out ${
+          className={`fixed inset-0 bg-[#0a0b14]/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-10 text-2xl text-gray-300 transform transition-all duration-500 ease-in-out ${
             menuOpen
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-full pointer-events-none"
           }`}
         >
-          {/* Close Button */}
           <button
-            className="absolute top-6 right-8 text-4xl text-gray-400 hover:text-white transition-transform duration-300"
+            className="absolute top-6 right-8 text-4xl text-gray-400 hover:text-white"
             onClick={() => setMenuOpen(false)}
           >
             ✕
           </button>
 
-          {/* Menu Links */}
           {["Home", "About", "Projects", "Contact"].map((item, index) => (
             <span
               key={item}
@@ -105,9 +102,10 @@ export default function Intro() {
             experiences using React, TailwindCSS, and modern tools.
           </p>
 
+          {/* ✅ Working Download Button */}
           <div className="flex justify-center md:justify-start space-x-4 pt-2">
-            <a href="resume.pdf" download>
-              <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base">
+            <a href="/resume.pdf" download="Jatin_Verma_CV.pdf">
+              <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base shadow-lg hover:shadow-indigo-500/40 transition-all duration-300">
                 Download CV
               </button>
             </a>
