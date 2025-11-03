@@ -15,7 +15,7 @@ export default function ContactForm() {
       `Hello Jatin 👋,%0A%0AI am ${name}.%0AEmail: ${email}%0AMessage: ${message}`
     );
 
-    const phoneNumber = "919351808245"; // your number, no “+”
+    const phoneNumber = "919351808245";
 
     // open WhatsApp chat
     window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, "_blank");
@@ -23,7 +23,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 text-white flex flex-col items-center">
+    <section id="contact" className=" px-6 text-white flex flex-col items-center">
       <h2 className="text-4xl font-bold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-400">
         Get in Touch
       </h2>
