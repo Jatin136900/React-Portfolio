@@ -6,13 +6,11 @@ export default function Intro() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Scroll listeners
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) setIsVisible(false);
       else setIsVisible(true);
 
-      // Change navbar background when scrolling
       if (window.scrollY > 30) setIsScrolled(true);
       else setIsScrolled(false);
     };
@@ -21,20 +19,20 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden ">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* 🌈 Glass Navbar */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-none transition-all duration-500 ${
           isScrolled ? "bg-white/10 shadow-md" : "bg-transparent"
         }`}
       >
-        <div className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6">
-          <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-white hover:text-indigo-400 transition-all duration-300">
+        <div className="flex justify-between items-center px-4 sm:px-8 md:px-14 lg:px-20 py-4 sm:py-6">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white hover:text-indigo-400 transition-all duration-300">
             Jatin
           </h1>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-10 text-gray-300">
+          <ul className="hidden md:flex space-x-8 lg:space-x-10 text-gray-300 text-sm lg:text-base">
             {["Home", "About", "Projects", "Contact"].map((item) => (
               <li
                 key={item}
@@ -48,23 +46,23 @@ export default function Intro() {
 
           {/* Hamburger (mobile) */}
           <div
-            className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl"
+            className="md:hidden text-gray-300 hover:text-white cursor-pointer text-2xl sm:text-3xl"
             onClick={() => setMenuOpen(true)}
           >
             ☰
           </div>
         </div>
+      </nav>
 
-        {/* Full Screen Mobile Menu */}
+      {/* ✅ Full Screen Mobile Menu (only visible when opened) */}
+      {menuOpen && (
         <div
-          className={`fixed inset-0 bg-[#0a0b14]/95 backdrop-blur-lg flex flex-col justify-center items-center space-y-10 text-2xl text-gray-300 transform transition-all duration-500 ease-in-out ${
-            menuOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-full pointer-events-none"
-          }`}
+          className={`fixed inset-0 z-50 bg-gradient-to-b from-[#0b0c1b] via-[#111326] to-[#0a0b14] backdrop-blur-2xl 
+          flex flex-col justify-center items-center space-y-8 sm:space-y-10 
+          text-xl sm:text-2xl text-gray-200 transition-all duration-500 ease-in-out`}
         >
           <button
-            className="absolute top-6 right-8 text-4xl text-gray-400 hover:text-white"
+            className="absolute top-6 right-8 text-3xl sm:text-4xl text-gray-400 hover:text-white transition-all duration-300"
             onClick={() => setMenuOpen(false)}
           >
             ✕
@@ -74,7 +72,7 @@ export default function Intro() {
             <span
               key={item}
               onClick={() => setMenuOpen(false)}
-              className="hover:text-white cursor-pointer transition-all duration-300 transform hover:scale-110"
+              className="hover:text-white cursor-pointer transition-all duration-300 transform hover:scale-110 font-medium"
               style={{
                 animation: "fadeSlide 0.5s ease forwards",
                 animationDelay: `${index * 0.1 + 0.2}s`,
@@ -83,72 +81,80 @@ export default function Intro() {
               {item}
             </span>
           ))}
-        </div>
-      </nav>
 
-      {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-6 sm:px-10 md:px-24 pt-32 md:pt-40 z-10 text-center md:text-left">
-        <div className="md:w-1/2 space-y-6 sm:space-y-8">
-          <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
-            {["React.js", "TailwindCSS", "JavaScript"].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-sm border border-[#2a2c45] rounded-full bg-[#15172a]/50 backdrop-blur-md text-gray-300"
-              >
-                {tech}
-              </span>
-            ))}
+          
+        </div>
+      )}
+
+      {/* ✅ Hero Section — hidden when menuOpen = true */}
+      {!menuOpen && (
+        <>
+          <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-4 sm:px-8 md:px-16 lg:px-24 pt-28 sm:pt-32 md:pt-40 z-10 text-center md:text-left">
+            <div className="md:w-1/2 space-y-5 sm:space-y-6 md:space-y-8">
+              <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
+                {["React.js", "TailwindCSS", "JavaScript"].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 text-xs sm:text-sm border border-[#2a2c45] rounded-full bg-[#15172a]/50 backdrop-blur-md text-gray-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Hello, I'm <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9cb8ff] to-[#6e8aff]">
+                  Jatin Verma
+                </span>
+              </h1>
+
+              <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+                An experienced Frontend Developer and UI/UX Designer with a
+                passion for crafting clean, interactive, and visually stunning
+                web experiences using React, TailwindCSS, and modern tools.
+              </p>
+
+              <div className="flex justify-center md:justify-start space-x-3 sm:space-x-4 pt-2">
+                <a href="/resume.pdf" download="Jatin_Verma_CV.pdf">
+                  <button className="px-5 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base shadow-lg hover:shadow-indigo-500/40 transition-all duration-300">
+                    Download CV
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <div className="md:w-1/2 flex justify-center mt-8 sm:mt-10 md:mt-0">
+              <div className="p-2 sm:p-3 rounded-3xl w-[90%] sm:w-[80%] md:w-[85%] lg:w-[75%]">
+                <video
+                  src={video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full rounded-2xl shadow-xl"
+                />
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            Hello, I'm <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9cb8ff] to-[#6e8aff]">
-              Jatin Verma
-            </span>
-          </h1>
-
-          <p className="text-gray-400 text-sm sm:text-base max-w-md mx-auto md:mx-0">
-            An experienced Frontend Developer and UI/UX Designer with a passion
-            for crafting clean, interactive, and visually stunning web
-            experiences using React, TailwindCSS, and modern tools.
-          </p>
-
-          <div className="flex justify-center md:justify-start space-x-4 pt-2">
-            <a href="/resume.pdf" download="Jatin_Verma_CV.pdf">
-              <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base shadow-lg hover:shadow-indigo-500/40 transition-all duration-300">
-                Download CV
-              </button>
-            </a>
+          {/* Scroll Indicator */}
+          <div
+            className={`fixed bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            <div className="text-center text-gray-400 text-xs sm:text-sm">
+              <p className="tracking-wide">Scroll to discover</p>
+              <div className="flex justify-center mt-1 sm:mt-2">
+                <span className="text-indigo-400 animate-scrollArrow text-base sm:text-lg">
+                  ▼
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
-          <div className="p-3 rounded-3xl w-[85%] sm:w-[80%] md:w-[90%]">
-            <video
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full rounded-2xl shadow-xl"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div
-        className={`fixed bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-        }`}
-      >
-        <div className="text-center text-gray-400 text-xs sm:text-sm">
-          <p className="tracking-wide">Scroll to discover</p>
-          <div className="flex justify-center mt-2">
-            <span className="text-indigo-400 animate-scrollArrow">▼</span>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
 
       {/* Animations */}
       <style jsx>{`
