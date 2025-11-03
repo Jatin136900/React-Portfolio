@@ -27,7 +27,7 @@ export default function Tech() {
   ];
 
   return (
-    <div className="relative py-30  flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10 bg-transparent">
+    <div className="relative py-20  flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 md:px-10 bg-transparent">
 
       {/* Heading */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-200 text-center mb-8 sm:mb-12 animate-fadeInUp leading-snug">
