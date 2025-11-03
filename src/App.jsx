@@ -6,6 +6,7 @@ import Form from "./Form";
 import Footer from "./Footer";
 import First from "./First";
 import { motion, AnimatePresence } from "framer-motion";
+import "./App.css";
 
 function App() {
   const [showHello, setShowHello] = useState(true);
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowHello(false);
-    }, 4500); 
+    }, 4500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -48,12 +49,24 @@ function App() {
           <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#0f1025]/60 to-[#1a1c3d]/80 mix-blend-overlay"></div>
         </div>
 
-        {/* --- Main Content --- */}
+        {/* --- Main Content with IDs for scroll --- */}
         <div className="relative z-10">
-          <Intro />
-          <Projects />
-          <Tech />
-          <Form />
+          <section id="home">
+            <Intro />
+          </section>
+
+          <section id="about">
+            <Tech />
+          </section>
+
+          <section id="projects">
+            <Projects />
+          </section>
+
+          <section id="contact">
+            <Form />
+          </section>
+
           <Footer />
         </div>
       </motion.div>

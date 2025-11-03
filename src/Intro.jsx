@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import video from "./images/vedio.mp4";
+import "./App.css";
+
+
 
 export default function Intro() {
   const [isVisible, setIsVisible] = useState(true);
@@ -33,15 +36,21 @@ export default function Intro() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-8 lg:space-x-10 text-gray-300 text-sm lg:text-base">
-            {["Home", "About", "Projects", "Contact"].map((item) => (
-              <li
-                key={item}
-                className="relative cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 group"
-              >
-                {item}
-                <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-gradient-to-r from-indigo-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
-              </li>
-            ))}
+            <li>
+              <a href="#home" className="hover:text-white transition-all duration-300">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#projects" className="hover:text-white transition-all duration-300">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="#contact" className="hover:text-white transition-all duration-300">
+                Contact
+              </a>
+            </li>
           </ul>
 
           {/* Hamburger (mobile) */}
@@ -54,7 +63,7 @@ export default function Intro() {
         </div>
       </nav>
 
-      {/* ✅ Full Screen Mobile Menu (only visible when opened) */}
+      {/* ✅ Full Screen Mobile Menu */}
       {menuOpen && (
         <div
           className={`fixed inset-0 z-50 bg-gradient-to-b from-[#0b0c1b] via-[#111326] to-[#0a0b14] backdrop-blur-2xl 
@@ -68,9 +77,14 @@ export default function Intro() {
             ✕
           </button>
 
-          {["Home", "About", "Projects", "Contact"].map((item, index) => (
-            <span
-              key={item}
+          {[
+            { name: "About", href: "#home" },
+            { name: "Projects", href: "#projects" },
+            { name: "Contact", href: "#contact" },
+          ].map((link, index) => (
+            <a
+              key={link.name}
+              href={link.href}
               onClick={() => setMenuOpen(false)}
               className="hover:text-white cursor-pointer transition-all duration-300 transform hover:scale-110 font-medium"
               style={{
@@ -78,11 +92,9 @@ export default function Intro() {
                 animationDelay: `${index * 0.1 + 0.2}s`,
               }}
             >
-              {item}
-            </span>
+              {link.name}
+            </a>
           ))}
-
-          
         </div>
       )}
 
