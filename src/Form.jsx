@@ -6,9 +6,25 @@ export default function ContactForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("✅ Your message has been sent successfully!");
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const message = e.target.message.value;
+
+    // Encode message for WhatsApp
+    const whatsappMessage = encodeURIComponent(
+      `Hello Jatin 👋,%0A%0AI am ${name}.%0AEmail: ${email}%0AMessage: ${message}`
+    );
+
+    // Your WhatsApp number with country code (no + sign)
+    const phoneNumber = "919351808245";
+
+    // Redirect to WhatsApp chat
+    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, "_blank");
+
     e.target.reset();
   };
+
 
   return (
     <section
