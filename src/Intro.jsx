@@ -4,43 +4,55 @@ import video from "./images/vedio.mp4";
 export default function Intro() {
   const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Hide scroll indicator on scroll
+  // Scroll listeners
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) setIsVisible(false);
       else setIsVisible(true);
+
+      // Change navbar background when scrolling
+      if (window.scrollY > 30) setIsScrolled(true);
+      else setIsScrolled(false);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-30 relative">
-        <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
-          Jatin
-        </h1>
+    <div className="min-h-screen flex flex-col relative overflow-hidden ">
+      {/* 🌈 Glass Navbar */}
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-none transition-all duration-500 ${
+          isScrolled ? "bg-white/10 shadow-md" : "bg-transparent"
+        }`}
+      >
+        <div className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6">
+          <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-white hover:text-indigo-400 transition-all duration-300">
+            Jatin
+          </h1>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-10 text-gray-400">
-          {["Home", "About", "Projects", "Contact"].map((item) => (
-            <li
-              key={item}
-              className="hover:text-white cursor-pointer transition-colors duration-300"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+          {/* Desktop Menu */}
+          <ul className="hidden md:flex space-x-10 text-gray-300">
+            {["Home", "About", "Projects", "Contact"].map((item) => (
+              <li
+                key={item}
+                className="relative cursor-pointer text-gray-400 hover:text-white transition-colors duration-300 group"
+              >
+                {item}
+                <span className="absolute left-0 bottom-[-4px] w-0 h-[2px] bg-gradient-to-r from-indigo-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+              </li>
+            ))}
+          </ul>
 
-        {/* Hamburger for mobile */}
-        <div
-          className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl"
-          onClick={() => setMenuOpen(true)}
-        >
-          ☰
+          {/* Hamburger (mobile) */}
+          <div
+            className="md:hidden text-gray-300 hover:text-white cursor-pointer text-3xl"
+            onClick={() => setMenuOpen(true)}
+          >
+            ☰
+          </div>
         </div>
 
         {/* Full Screen Mobile Menu */}
@@ -75,8 +87,7 @@ export default function Intro() {
       </nav>
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-6 sm:px-10 md:px-24 pt-10 md:pt-0 z-10 text-center md:text-left">
-        {/* Left Text Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-6 sm:px-10 md:px-24 pt-32 md:pt-40 z-10 text-center md:text-left">
         <div className="md:w-1/2 space-y-6 sm:space-y-8">
           <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
             {["React.js", "TailwindCSS", "JavaScript"].map((tech) => (
@@ -102,7 +113,6 @@ export default function Intro() {
             experiences using React, TailwindCSS, and modern tools.
           </p>
 
-          {/* ✅ Working Download Button */}
           <div className="flex justify-center md:justify-start space-x-4 pt-2">
             <a href="/resume.pdf" download="Jatin_Verma_CV.pdf">
               <button className="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base shadow-lg hover:shadow-indigo-500/40 transition-all duration-300">
@@ -112,7 +122,6 @@ export default function Intro() {
           </div>
         </div>
 
-        {/* Right Video Section */}
         <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
           <div className="p-3 rounded-3xl w-[85%] sm:w-[80%] md:w-[90%]">
             <video
@@ -121,7 +130,7 @@ export default function Intro() {
               loop
               muted
               playsInline
-              className="w-full rounded-2xl"
+              className="w-full rounded-2xl shadow-xl"
             />
           </div>
         </div>
