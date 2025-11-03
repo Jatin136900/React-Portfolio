@@ -16,7 +16,7 @@ export default function Intro() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0a0b14] text-white">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Navbar */}
       <nav className="flex justify-between items-center px-6 sm:px-10 md:px-20 py-6 z-30 relative">
         <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">
