@@ -128,7 +128,7 @@ export default function Intro() {
               </p>
 
               <div className="flex justify-center md:justify-start space-x-3 sm:space-x-4 pt-2">
-                <a href="/resume.pdf" download="Jatin_Verma_CV.pdf">
+                <a href="/Jatin Resume.pdf" download="Jatin_Verma_CV.pdf">
                   <button className="px-5 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium text-sm sm:text-base shadow-lg hover:shadow-indigo-500/40 transition-all duration-300">
                     Download CV
                   </button>
