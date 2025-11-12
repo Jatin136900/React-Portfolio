@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import First from "./First";
 import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
+import Fav from './images/Fav.png'
 
 function App() {
   const [showHello, setShowHello] = useState(true);
