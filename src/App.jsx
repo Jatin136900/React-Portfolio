@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import First from "./First";
 import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
+import Lenis from 'lenis'
 import Fav from './images/Fav.png'
 
 function App() {
@@ -18,6 +19,22 @@ function App() {
     }, 4500);
     return () => clearTimeout(timer);
   }, []);
+
+
+  // Initialize Lenis
+
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    // Use requestAnimationFrame to continuously update the scroll
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, [])
+
 
   return (
     <>

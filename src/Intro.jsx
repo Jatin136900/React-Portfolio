@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import video from "./images/vedio.mp4";
 import "./App.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 
 
@@ -8,6 +10,37 @@ export default function Intro() {
   const [isVisible, setIsVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+
+
+  const headingRef = useRef();
+
+  const heading = 'Jatin Verma'
+  const letters = heading.split("")
+
+
+  useGSAP(() => {
+    setTimeout(() => {
+      gsap.to('.home', { duration: 1, opacity: 1, ease: 'power1.inOut' })
+      const spans = Array.from(headingRef.current.children);
+
+
+
+
+      const odd = spans.filter((_, index) => index % 2 === 0);
+      const even = spans.filter((_, index) => index % 2 !== 0);
+
+      gsap.fromTo(odd,
+        { y: '-100%', opacity: 0, },
+        { y: 0, duration: 1, opacity: 1, stagger: 0.1, ease: 'power1.inOut' }
+      )
+      gsap.fromTo(even,
+        { y: 100, opacity: 0, },
+        { y: 0, duration: 1, opacity: 1, stagger: 0.1, ease: 'power1.inOut' }
+      )
+    }, 4500)
+  })
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,9 +58,8 @@ export default function Intro() {
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* 🌈 Glass Navbar */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-none transition-all duration-500 ${
-          isScrolled ? "bg-white/10 shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b border-none transition-all duration-500 ${isScrolled ? "bg-white/10 shadow-md" : "bg-transparent"
+          }`}
       >
         <div className="flex justify-between items-center px-4 sm:px-8 md:px-14 lg:px-20 py-4 sm:py-6">
           <h1 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white hover:text-indigo-400 transition-all duration-300">
@@ -114,12 +146,59 @@ export default function Intro() {
                 ))}
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+
+
+              {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Hello, I'm <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9cb8ff] to-[#6e8aff]">
                   Jatin Verma
                 </span>
+              </h1> */}
+
+
+
+
+
+              {/* <h1
+
+                ref={headingRef}
+                className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight  tracking-tight leading-none bg-clip-text bg-gradient-to-r from-[#9cb8ff] to-[#6e8aff]  whitespace-nowrap overflow-clip ">
+                Hello, I'm <br />
+                {letters.map((letter, idx) => {
+                  return <span className='inline-block' key={idx}>{letter}</span>
+                })}
+              </h1> */}
+
+
+              <h1
+                ref={headingRef}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight leading-none whitespace-nowrap overflow-clip"
+              >
+                Hello, I'm <br />
+
+                {letters.map((letter, idx) => {
+                  return (
+                    <span
+                      key={idx}
+                      className="
+          inline-block
+          text-transparent
+          bg-clip-text
+          bg-gradient-to-r
+          from-[#9cb8ff]
+          to-[#6e8aff]
+          tracking-[0.05em]
+        "
+                    >
+                      {letter}
+                    </span>
+                  );
+                })}
               </h1>
+
+
+
+
 
               <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
                 An experienced Frontend Developer and UI/UX Designer with a
@@ -152,9 +231,8 @@ export default function Intro() {
 
           {/* Scroll Indicator */}
           <div
-            className={`fixed bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
+            className={`fixed bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              }`}
           >
             <div className="text-center text-gray-400 text-xs sm:text-sm">
               <p className="tracking-wide">Scroll to discover</p>
