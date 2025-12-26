@@ -62,12 +62,12 @@ export default function Intro() {
           }`}
       >
         <div className="flex justify-between items-center px-4 sm:px-8 md:px-14 lg:px-20 py-4 sm:py-6">
-          <h1 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white hover:text-indigo-400 transition-all duration-300">
+          <h1 className="text-lg font-[Jatin] tracking-[10px] sm:text-xl md:text-2xl font-semibold  text-white hover:text-indigo-400 transition-all duration-300">
             Jatin
           </h1>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-8 lg:space-x-10 text-gray-300 text-sm lg:text-base">
+          <ul className="hidden md:flex space-x-8 lg:space-x-10 text-gray-300 text-sm lg:text-base font-[Jatin1]">
             <li>
               <a href="#home" className="hover:text-white transition-all duration-300">
                 About
@@ -98,7 +98,7 @@ export default function Intro() {
       {/* ✅ Full Screen Mobile Menu */}
       {menuOpen && (
         <div
-          className={`fixed inset-0 z-50 bg-gradient-to-b from-[#0b0c1b] via-[#111326] to-[#0a0b14] backdrop-blur-2xl 
+          className={`fixed font-[Jatin] inset-0 z-50 bg-gradient-to-b from-[#0b0c1b] via-[#111326] to-[#0a0b14] backdrop-blur-2xl 
           flex flex-col justify-center items-center space-y-8 sm:space-y-10 
           text-xl sm:text-2xl text-gray-200 transition-all duration-500 ease-in-out`}
         >
@@ -182,6 +182,7 @@ export default function Intro() {
                       key={idx}
                       className="
           inline-block
+          font-[Jatin]
           text-transparent
           bg-clip-text
           bg-gradient-to-r
@@ -200,7 +201,7 @@ export default function Intro() {
 
 
 
-              <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
+              <p className="text-gray-400  text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
                 An experienced Frontend Developer and UI/UX Designer with a
                 passion for crafting clean, interactive, and visually stunning
                 web experiences using React, TailwindCSS, and modern tools.
@@ -235,7 +236,7 @@ export default function Intro() {
               }`}
           >
             <div className="text-center text-gray-400 text-xs sm:text-sm">
-              <p className="tracking-wide">Scroll to discover</p>
+              <p className="tracking-wide font-[Jatin4]">Scroll to discover</p>
               <div className="flex justify-center mt-1 sm:mt-2">
                 <span className="text-indigo-400 animate-scrollArrow text-base sm:text-lg">
                   ▼

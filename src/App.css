@@ -1,3 +1,26 @@
+@font-face {
+  font-family:Jatin ;
+  src: url(../src/Font/Condor-BlackItalic.ttf);
+}
+
+
+@font-face {
+  font-family:Jatin1 ;
+  src: url(../src/Font/Condor-BlackItalic.ttf);
+}
+@font-face {
+  font-family:Jatin2 ;
+  src: url(../src/Font/670f2ffffad2b4c4138b038c_TAYRoadRunner.otf);
+}
+@font-face {
+  font-family:Jatin3 ;
+  src: url(../src/Font/670f33c04e9bfff84add9ee3_Daily\ Spark\ Script.otf);
+}
+@font-face {
+  font-family:Jatin4 ;
+  src: url(../src/Font/canopee.ttf);
+}
+
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6,6 +29,11 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+body {
+  overflow-x: hidden;
+  /* font-family: Jatin; */
 }
 
 
@@ -28,12 +56,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(138, 90, 255, 0.15) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(120deg,
+      transparent 30%,
+      rgba(138, 90, 255, 0.15) 50%,
+      transparent 70%);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -142,3 +168,8 @@
     font-size: 0.8rem;
   }
 }
+
+body {
+  overflow-x: hidden;
+}
+
