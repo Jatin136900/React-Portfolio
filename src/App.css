@@ -1,23 +1,26 @@
 @font-face {
-  font-family:Jatin ;
+  font-family: Jatin;
   src: url(../src/Font/Condor-BlackItalic.ttf);
 }
 
 
 @font-face {
-  font-family:Jatin1 ;
+  font-family: Jatin1;
   src: url(../src/Font/Condor-BlackItalic.ttf);
 }
+
 @font-face {
-  font-family:Jatin2 ;
+  font-family: Jatin2;
   src: url(../src/Font/670f2ffffad2b4c4138b038c_TAYRoadRunner.otf);
 }
+
 @font-face {
-  font-family:Jatin3 ;
+  font-family: Jatin3;
   src: url(../src/Font/670f33c04e9bfff84add9ee3_Daily\ Spark\ Script.otf);
 }
+
 @font-face {
-  font-family:Jatin4 ;
+  font-family: Jatin4;
   src: url(../src/Font/canopee.ttf);
 }
 
@@ -34,6 +37,7 @@
 body {
   overflow-x: hidden;
   /* font-family: Jatin; */
+
 }
 
 
@@ -172,4 +176,3 @@ body {
 body {
   overflow-x: hidden;
 }
-
