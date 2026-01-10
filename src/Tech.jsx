@@ -10,15 +10,21 @@ import icon8 from "./images/vs.svg";
 import icon9 from "./images/vercal.png";
 import icon10 from "./images/github.png";
 import icon11 from "./images/figma.png";
+import express from './images/expressjs.svg';
+import mongo from './images/mongo.svg';
+import node from './images/node.png'
 
 export default function Tech() {
   const icons = [
     { src: ht, color: "#e34c26" },
     { src: icon2, color: "#2965f1" },
     { src: icon3, color: "#f7df1e" },
-    { src: icon6, color: "#38bdf8" },
     { src: icon4, color: "#61dafb" },
     { src: icon5, color: "#a855f7" },
+    { src: node, color: "#68a063" },     
+    { src: express, color: "#ffffff" },  
+    { src: mongo, color: "#47a248" },
+    { src: icon6, color: "#38bdf8" },
     { src: icon7, color: "#7952b3" },
     { src: icon8, color: "#007acc" },
     { src: icon9, color: "#000000" },

@@ -135,16 +135,7 @@ export default function Intro() {
         <>
           <div className="flex flex-col md:flex-row items-center justify-between flex-grow px-4 sm:px-8 md:px-16 lg:px-24 pt-28 sm:pt-32 md:pt-40 z-10 text-center md:text-left">
             <div className="md:w-1/2 space-y-5 sm:space-y-6 md:space-y-8">
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
-                {["React.js", "TailwindCSS", "JavaScript"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 text-xs sm:text-sm border border-[#2a2c45] rounded-full bg-[#15172a]/50 backdrop-blur-md text-gray-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          
 
 
 
@@ -202,9 +193,7 @@ export default function Intro() {
 
 
               <p className="text-gray-400  text-sm sm:text-base md:text-lg max-w-md mx-auto md:mx-0 leading-relaxed">
-                An experienced Frontend Developer and UI/UX Designer with a
-                passion for crafting clean, interactive, and visually stunning
-                web experiences using React, TailwindCSS, and modern tools.
+                MERN Stack Developer and UI/UX Designer skilled in building scalable, responsive web applications using MongoDB, Express.js, React.js, and Node.js, with a strong focus on modern, intuitive user interfaces.
               </p>
 
               <div className="flex justify-center md:justify-start space-x-3 sm:space-x-4 pt-2">
