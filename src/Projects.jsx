@@ -31,6 +31,7 @@ import truec from "./images/trucaller.png";
 import school from "./images/school.png";
 import Spotify from "./images/spotify.png";
 import Port from "./images/port.png";
+import backend from "./images/backend.png"
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("html");
@@ -93,9 +94,15 @@ export default function Projects() {
       { title: "School Website", img: school, demo: "https://newbootstrap-ck3o.vercel.app/", desc: "Academic portal layout using Bootstrap grid system." },
       { title: "Spotify Clone", img: Spotify, demo: "https://spotify-delta-ruby.vercel.app/", desc: "Dark and sleek Spotify interface built with Bootstrap." },
     ],
+    "Backend Project": [
+      { title: "Ecommerce Websit", img: backend, demo: "https://backend-project-2-uiaf.onrender.com/", desc: "It's a fully Working Website made with Node.js and React.Js " },
+      // { title: "Truecaller UI", img: truec, demo: "https://truecaller-kappa.vercel.app/", desc: "Bootstrap-based Truecaller clone with responsive layout." },
+    ],
+
+
   };
 
-  const tabList = ["html", "js", "react", "tailwind", "bootstrap"];
+  const tabList = ["html", "js", "react", "tailwind", "bootstrap", "Backend Project"];
 
   return (
     <section id="projects" className="text-white min-h-screen px-4 sm:px-8 py-14">
@@ -110,8 +117,8 @@ export default function Projects() {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-5 sm:px-6 py-2 rounded-full transition-all duration-300 font-medium text-sm sm:text-base ${activeTab === tab
-                ? "bg-blue-600/90 shadow-[0_0_15px_rgba(37,99,235,0.7)] text-white scale-105"
-                : "bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white"
+              ? "bg-blue-600/90 shadow-[0_0_15px_rgba(37,99,235,0.7)] text-white scale-105"
+              : "bg-white/5 hover:bg-white/15 text-gray-300 hover:text-white"
               }`}
           >
             {tab.toUpperCase()}
