@@ -32,6 +32,8 @@ import school from "./images/school.png";
 import Spotify from "./images/spotify.png";
 import Port from "./images/port.png";
 import backend from "./images/backend.png"
+import Fight from "./images/fight.png"
+
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState("html");
@@ -96,7 +98,8 @@ export default function Projects() {
     ],
     "Backend Project": [
       { title: "Ecommerce Websit", img: backend, demo: "https://backend-project-2-uiaf.onrender.com/", desc: "It's a fully Working Website made with Node.js and React.Js " },
-      // { title: "Truecaller UI", img: truec, demo: "https://truecaller-kappa.vercel.app/", desc: "Bootstrap-based Truecaller clone with responsive layout." },
+      { title: "Pokemon Fight", img: Fight, demo: "https://pokemon-fight-backend-9hgh.onrender.com/", desc: "This is my Pokémon Fight project developed with the MERN Stack, offering engaging battle mechanics and a dynamic UI. " },
+
     ],
 
 
