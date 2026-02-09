@@ -33,6 +33,8 @@ import Spotify from "./images/spotify.png";
 import Port from "./images/port.png";
 import backend from "./images/backend.png"
 import Fight from "./images/fight.png"
+import stranger from "./images/stranger.png"
+import booth from "./images/booth.png"
 
 
 export default function Projects() {
@@ -85,6 +87,9 @@ export default function Projects() {
       { title: "ToDo App", img: todo, demo: "https://avtar-rust.vercel.app/", desc: "Smooth task manager app using React useState & localStorage." },
       { title: "Pokemon Kingdom", img: poki, demo: "https://pokemon-react-six-bay.vercel.app/", desc: "Pokémon data fetched dynamically with Framer animations." },
       { title: "Rolls-Royce", img: royse, demo: "https://rolls-royce-coral.vercel.app/", desc: "Luxury-inspired website showcasing modern UI in React." },
+      { title: "Stranger Things", img: stranger, demo: "https://stranger-things-umber-tau.vercel.app/", desc: "Built an interactive hover effect inspired by Stranger Things!" },
+      { title: "Photo-Booth", img: booth, demo: "https://photobooth-one-lyart.vercel.app/", desc: "Built a Photo Booth using React! It includes camera filters, captures 3 photos with a single click, and allows users to download their photos instantly. " },
+      
     ],
     tailwind: [
       { title: "Area Portfolio", img: Area, demo: "https://new-area.vercel.app/", desc: "Sleek Tailwind-based personal portfolio." },
