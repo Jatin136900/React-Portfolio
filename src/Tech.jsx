@@ -13,6 +13,9 @@ import icon11 from "./images/figma.png";
 import express from './images/expressjs.svg';
 import mongo from './images/mongo.svg';
 import node from './images/node.png'
+import nextjs from './images/nextjs.png'
+import typescript from './images/typescript.png'
+import mysql from './images/mysql.png'
 
 export default function Tech() {
   const icons = [
@@ -24,6 +27,9 @@ export default function Tech() {
     { src: node, color: "#68a063" },     
     { src: express, color: "#ffffff" },  
     { src: mongo, color: "#47a248" },
+    { src: nextjs, color: "#000000" },
+    { src: typescript, color: "#3178c6" },
+    { src: mysql, color: "#0075a8" },
     { src: icon6, color: "#38bdf8" },
     { src: icon7, color: "#7952b3" },
     { src: icon8, color: "#007acc" },
